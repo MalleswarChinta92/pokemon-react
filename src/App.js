@@ -13,7 +13,7 @@ function App() {
   useEffect(()=>{
     setLoading(true)
     let cancel
-    axios.get(currentPage, {cancelToken: axios.cancelToken(c=> cancel = c)}).then((resp)=>{
+    axios.get(currentPage, {cancelToken: new axios.CancelToken(c=> cancel = c)}).then((resp)=>{
       //for (let i = 0; i < 1000000000; i++) {}
       setLoading(false)
       setPokemon(resp.data.results)
